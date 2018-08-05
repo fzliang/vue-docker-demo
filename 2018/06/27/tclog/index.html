@@ -1,0 +1,712 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="TC日志," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="TC &amp;amp;&amp;amp; 记录 &amp;amp;&amp;amp; 成长  2018-07-15cy[转载] 2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处cxy[转载] Mockito浅谈fzl[转载]实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？2018-07-14fzl[转载] What Is React?cy[转载] JDK 11 将引入低延迟 GC，大幅度缩短 GC 暂停">
+<meta name="keywords" content="TC日志">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TC分享链接">
+<meta property="og:url" content="http://fzliang.cn/2018/06/27/tclog/index.html">
+<meta property="og:site_name" content="fzliang">
+<meta property="og:description" content="TC &amp;amp;&amp;amp; 记录 &amp;amp;&amp;amp; 成长  2018-07-15cy[转载] 2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处cxy[转载] Mockito浅谈fzl[转载]实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？2018-07-14fzl[转载] What Is React?cy[转载] JDK 11 将引入低延迟 GC，大幅度缩短 GC 暂停">
+<meta property="og:updated_time" content="2018-07-15T13:41:38.364Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TC分享链接">
+<meta name="twitter:description" content="TC &amp;amp;&amp;amp; 记录 &amp;amp;&amp;amp; 成长  2018-07-15cy[转载] 2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处cxy[转载] Mockito浅谈fzl[转载]实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？2018-07-14fzl[转载] What Is React?cy[转载] JDK 11 将引入低延迟 GC，大幅度缩短 GC 暂停">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://fzliang.cn/2018/06/27/tclog/"/>
+
+
+
+
+
+  <title> TC分享链接 | fzliang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">fzliang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://fzliang.cn/2018/06/27/tclog/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="fzliang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="fzliang">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="fzliang" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                TC分享链接
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-27T17:26:24+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>TC &amp;&amp; 记录 &amp;&amp; 成长</p>
+</blockquote>
+<h1 id="2018-07-15"><a href="#2018-07-15" class="headerlink" title="2018-07-15"></a>2018-07-15</h1><h2 id="cy-转载-2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处"><a href="#cy-转载-2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处" class="headerlink" title="cy[转载] 2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzIzNjUxMzk2NQ==&amp;mid=2247489558&amp;idx=1&amp;sn=392034b260781f66d3eb23a1f7f3a580&amp;chksm=e8d7e7d4dfa06ec220d6d10ba16fdef9d32839538b9323ab0799c0604f35b5dc27c155f70db9&amp;mpshare=1&amp;scene=1&amp;srcid=0715t55EcMJUYyl9zccn9PRC#rd" target="_blank" rel="external">2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处</a></h2><h2 id="cxy-转载-Mockito浅谈"><a href="#cxy-转载-Mockito浅谈" class="headerlink" title="cxy[转载] Mockito浅谈"></a>cxy<sup>[转载]</sup> <a href="https://blog.csdn.net/guijiaoba/article/details/51945873" target="_blank" rel="external">Mockito浅谈</a></h2><h2 id="fzl-转载-实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？"><a href="#fzl-转载-实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？" class="headerlink" title="fzl[转载]实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？"></a>fzl<sup>[转载]</sup><a href="https://juejin.im/entry/5b4956b36fb9a04fa13f26f7" target="_blank" rel="external">实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？</a></h2><h1 id="2018-07-14"><a href="#2018-07-14" class="headerlink" title="2018-07-14"></a>2018-07-14</h1><h2 id="fzl-转载-What-Is-React"><a href="#fzl-转载-What-Is-React" class="headerlink" title="fzl[转载] What Is React?"></a>fzl<sup>[转载]</sup> <a href="https://learnreact.design/2017/06/08/what-is-react/" target="_blank" rel="external">What Is React?</a></h2><h2 id="cy-转载-JDK-11-将引入低延迟-GC，大幅度缩短-GC-暂停时长"><a href="#cy-转载-JDK-11-将引入低延迟-GC，大幅度缩短-GC-暂停时长" class="headerlink" title="cy[转载] JDK 11 将引入低延迟 GC，大幅度缩短 GC 暂停时长"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&amp;mid=2651481434&amp;idx=1&amp;sn=f4c34c5bc1031d8a2472c3160395cb45&amp;chksm=bd2509258a528033cb0793cd13522ea9a1e79d88c1e8ab4d7420f725cfb7034d5dc3e4ee00fa&amp;mpshare=1&amp;scene=1&amp;srcid=0714c09KB95fKDW5KArEVhe5#rd" target="_blank" rel="external">JDK 11 将引入低延迟 GC，大幅度缩短 GC 暂停时长</a></h2><h1 id="2018-07-13"><a href="#2018-07-13" class="headerlink" title="2018-07-13"></a>2018-07-13</h1><h2 id="cy-转载-求取一份极致的简单：全链路跟踪中间件探索之路"><a href="#cy-转载-求取一份极致的简单：全链路跟踪中间件探索之路" class="headerlink" title="cy[转载] 求取一份极致的简单：全链路跟踪中间件探索之路"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzA5OTAyNzQ2OA==&amp;mid=2649698174&amp;idx=1&amp;sn=5bc400cbb951f0d99f90b12bc27dc191&amp;chksm=8893101dbfe4990bfc8e6f4a5d08c0373c67c44dba5fcb6164342d60c9292a7073bb5000914d&amp;mpshare=1&amp;scene=1&amp;srcid=0713kbuWUWrzwYfK47SQKrgf#rd" target="_blank" rel="external">求取一份极致的简单：全链路跟踪中间件探索之路</a></h2><h2 id="cy-转载-如何提高代码质量？"><a href="#cy-转载-如何提高代码质量？" class="headerlink" title="cy[转载] 如何提高代码质量？"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzAxMzc4Mzk1Mw==&amp;mid=2649839158&amp;idx=1&amp;sn=b2947cc4cd4700cc75e0a97cf4b0e162&amp;chksm=8398b0c8b4ef39de5f964f708fab5b3c80d9822c6778eb85f599eec06c4df7c050eaba0b84e4&amp;mpshare=1&amp;scene=1&amp;srcid=0713Zvw7PcTqmOSy7YEqBvCw#rd" target="_blank" rel="external">如何提高代码质量？</a></h2><h2 id="cxy-转载-五分钟理解一致性哈希算法"><a href="#cxy-转载-五分钟理解一致性哈希算法" class="headerlink" title="cxy[转载] 五分钟理解一致性哈希算法"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI5ODI5NDkxMw==&amp;mid=2247487258&amp;idx=1&amp;sn=4cf71154ea9e3c6a91d4761e39b7e21f&amp;chksm=eca944f4dbdecde270bfc1e7a282f43d910b3823c0462b2e80b693075af4d362e227b03398ca&amp;mpshare=1&amp;scene=1&amp;srcid=0713ri2AWSQj4laiM38Jm5D3#rd" target="_blank" rel="external">五分钟理解一致性哈希算法</a></h2><h2 id="cy-转载-反应式宣言"><a href="#cy-转载-反应式宣言" class="headerlink" title="cy[转载] 反应式宣言"></a>cy<sup>[转载]</sup> <a href="https://www.reactivemanifesto.org/zh-CN" target="_blank" rel="external">反应式宣言</a></h2><h1 id="2018-07-12"><a href="#2018-07-12" class="headerlink" title="2018-07-12"></a>2018-07-12</h1><h2 id="fzl-转载-译-React性能优化-虚拟Dom原理浅析"><a href="#fzl-转载-译-React性能优化-虚拟Dom原理浅析" class="headerlink" title="fzl[转载] [译] React性能优化-虚拟Dom原理浅析"></a>fzl<sup>[转载]</sup> <a href="http://wuyuying.com/blog/archives/optimizing-react-virtual-dom-explained/" target="_blank" rel="external">[译] React性能优化-虚拟Dom原理浅析</a></h2><h2 id="fzl-转载-实施微前端的六种方式"><a href="#fzl-转载-实施微前端的六种方式" class="headerlink" title="fzl[转载] 实施微前端的六种方式"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/post/5b45d0ea6fb9a04fa42f9f1a" target="_blank" rel="external">实施微前端的六种方式</a></h2><h2 id="cy-转载-Go-compiler-SSA-optimization-rules-description-language"><a href="#cy-转载-Go-compiler-SSA-optimization-rules-description-language" class="headerlink" title="cy[转载] Go compiler: SSA optimization rules description language"></a>cy<sup>[转载]</sup> <a href="https://quasilyte.github.io/blog/post/go_ssa_rules/" target="_blank" rel="external">Go compiler: SSA optimization rules description language</a></h2><h2 id="cxy-转载-编程人生：毕业到迈入工作的第五年，发生了这些变化"><a href="#cxy-转载-编程人生：毕业到迈入工作的第五年，发生了这些变化" class="headerlink" title="cxy[转载] 编程人生：毕业到迈入工作的第五年，发生了这些变化"></a>cxy<sup>[转载]</sup> <a href="https://blog.csdn.net/j01G58UC80251/article/details/80976970" target="_blank" rel="external">编程人生：毕业到迈入工作的第五年，发生了这些变化</a></h2><h2 id="cy-转载-Cache-Aside-Pattern"><a href="#cy-转载-Cache-Aside-Pattern" class="headerlink" title="cy[转载] Cache Aside Pattern"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651961349&amp;idx=1&amp;sn=59119a223f62d3740712ca0f62064f04&amp;chksm=bd2d0dd98a5a84cf94d75e8e84ad7fe35fd040dfe02fe49db8dd64127c548aa194d2d169e149&amp;mpshare=1&amp;scene=1&amp;srcid=0712dETlPWLSetaQTgogZGD7#rd" target="_blank" rel="external">Cache Aside Pattern</a></h2><h1 id="2018-07-11"><a href="#2018-07-11" class="headerlink" title="2018-07-11"></a>2018-07-11</h1><h2 id="cy-转载-Go语言并发模型：使用-context"><a href="#cy-转载-Go语言并发模型：使用-context" class="headerlink" title="cy[转载] Go语言并发模型：使用 context"></a>cy<sup>[转载]</sup> <a href="https://segmentfault.com/a/1190000006744213" target="_blank" rel="external">Go语言并发模型：使用 context</a></h2><h2 id="fzl-转载-高阶函数，你怎么那么漂亮呢！"><a href="#fzl-转载-高阶函数，你怎么那么漂亮呢！" class="headerlink" title="fzl[转载] 高阶函数，你怎么那么漂亮呢！"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/post/5ad6b34a6fb9a028cc61bfb3" target="_blank" rel="external">高阶函数，你怎么那么漂亮呢！</a></h2><h1 id="2018-07-10"><a href="#2018-07-10" class="headerlink" title="2018-07-10"></a>2018-07-10</h1><h2 id="fzl-转载-Vue响应式系统是如何实现的"><a href="#fzl-转载-Vue响应式系统是如何实现的" class="headerlink" title="fzl[转载] Vue响应式系统是如何实现的"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/entry/5b407bc551882519a62f4789" target="_blank" rel="external">Vue响应式系统是如何实现的</a></h2><h2 id="cxy-转载-使用-watch-帮你重复执行命令"><a href="#cxy-转载-使用-watch-帮你重复执行命令" class="headerlink" title="cxy[转载] 使用 watch 帮你重复执行命令"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI4MDEwNzAzNg==&amp;mid=2649444907&amp;idx=1&amp;sn=7ae98977f4f67370981985c675707b0e&amp;chksm=f3a27358c4d5fa4ee581fae3bfce8d50a07fcd3e64e6c00968e5f149af870e3ff48815a02818&amp;mpshare=1&amp;scene=1&amp;srcid=0710ZuhRhUGhZBjwyAifviNs#rd" target="_blank" rel="external">使用 watch 帮你重复执行命令</a></h2><h2 id="fzl-转载-keep-alive：组件级缓存"><a href="#fzl-转载-keep-alive：组件级缓存" class="headerlink" title="fzl[转载]  keep-alive：组件级缓存"></a>fzl<sup>[转载]</sup>  <a href="https://juejin.im/post/5b407c2a6fb9a04fa91bcf0d" target="_blank" rel="external">keep-alive：组件级缓存</a></h2><h2 id="cy-转载-虚拟IP"><a href="#cy-转载-虚拟IP" class="headerlink" title="cy[转载] 虚拟IP"></a>cy<sup>[转载]</sup> <a href="https://segmentfault.com/a/1190000013086350" target="_blank" rel="external">虚拟IP</a></h2><h1 id="2018-07-09"><a href="#2018-07-09" class="headerlink" title="2018-07-09"></a>2018-07-09</h1><h2 id="cy-转载-缓存那些事"><a href="#cy-转载-缓存那些事" class="headerlink" title="cy[转载] 缓存那些事"></a>cy<sup>[转载]</sup> <a href="https://tech.meituan.com/cache_about.html" target="_blank" rel="external">缓存那些事</a></h2><h2 id="fzl-转载-Airbnb-CSS-in-JavaScript-风格指南"><a href="#fzl-转载-Airbnb-CSS-in-JavaScript-风格指南" class="headerlink" title="fzl[转载] Airbnb CSS-in-JavaScript 风格指南"></a>fzl<sup>[转载]</sup> <a href="https://www.zcfy.cc/article/javascript-css-in-javascript-at-master" target="_blank" rel="external">Airbnb CSS-in-JavaScript 风格指南</a></h2><h2 id="fzl-转载-一篇全面的CSS布局学习指南-译"><a href="#fzl-转载-一篇全面的CSS布局学习指南-译" class="headerlink" title="fzl[转载] 一篇全面的CSS布局学习指南 [译]"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/post/5b3b56a1e51d4519646204bb" target="_blank" rel="external">一篇全面的CSS布局学习指南 [译]</a></h2><h2 id="cxy-转载-白话网站架构演进"><a href="#cxy-转载-白话网站架构演进" class="headerlink" title="cxy[转载] 白话网站架构演进"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzU4ODM1MTQyOA==&amp;mid=2247484376&amp;idx=1&amp;sn=f08d9829d42def8ad19dab393e86ca7a&amp;chksm=fddf5173caa8d865fe33159dae006c2c9e91471061c1681607605e99c0f92dc9c7c008afda4a&amp;mpshare=1&amp;scene=1&amp;srcid=0709WrxCPM0FxjsylmuE537v#rd" target="_blank" rel="external">白话网站架构演进</a></h2><h1 id="2018-07-08"><a href="#2018-07-08" class="headerlink" title="2018-07-08"></a>2018-07-08</h1><h2 id="fzl-转载-进程、线程、协程与goruntine"><a href="#fzl-转载-进程、线程、协程与goruntine" class="headerlink" title="fzl[转载]  进程、线程、协程与goruntine"></a>fzl<sup>[转载]</sup>  <a href="https://zhuanlan.zhihu.com/p/27245377?hmsr=studygolang.com&amp;utm_medium=studygolang.com&amp;utm_source=studygolang.com" target="_blank" rel="external">进程、线程、协程与goruntine</a></h2><h2 id="fzl-转载-进程-线程-协程-管程-纤程-概念对比理解"><a href="#fzl-转载-进程-线程-协程-管程-纤程-概念对比理解" class="headerlink" title="fzl[转载] 进程 线程 协程 管程 纤程 概念对比理解"></a>fzl<sup>[转载]</sup> <a href="https://zhuanlan.zhihu.com/p/26757689" target="_blank" rel="external">进程 线程 协程 管程 纤程 概念对比理解</a></h2><h1 id="2018-07-07"><a href="#2018-07-07" class="headerlink" title="2018-07-07"></a>2018-07-07</h1><h2 id="cy-转载-架构设计：负载均衡层设计方案之负载场景和解决方式篇"><a href="#cy-转载-架构设计：负载均衡层设计方案之负载场景和解决方式篇" class="headerlink" title="cy[转载] 架构设计：负载均衡层设计方案之负载场景和解决方式篇"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI0MDQ4MTM5NQ==&amp;mid=2247486269&amp;idx=1&amp;sn=d1be7ab00981f82532bc376ab55b92b9&amp;chksm=e91b6e21de6ce737b79d1b6ac8188b62d6cbc74920eb1e0a30a9b02dbc9c346cde1ab113611f&amp;mpshare=1&amp;scene=1&amp;srcid=0707Jw77M5wEhEYGzEdwmplE#rd" target="_blank" rel="external">架构设计：负载均衡层设计方案之负载场景和解决方式篇</a></h2><h2 id="cy-转载-在Gogland里对GO程序进行单元测试！"><a href="#cy-转载-在Gogland里对GO程序进行单元测试！" class="headerlink" title="cy[转载] 在Gogland里对GO程序进行单元测试！"></a>cy<sup>[转载]</sup> <a href="https://studygolang.com/articles/9413" target="_blank" rel="external">在Gogland里对GO程序进行单元测试！</a></h2><h2 id="cxy-转载-一文告诉你-Java-RMI-和-RPC-的区别！"><a href="#cxy-转载-一文告诉你-Java-RMI-和-RPC-的区别！" class="headerlink" title="cxy[转载] 一文告诉你 Java RMI 和 RPC 的区别！"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247486403&amp;idx=1&amp;sn=3ec98d1553969ad38fbd225aef2c9807&amp;chksm=eb538ef5dc2407e3ee906c378776baf473d2a27ae0e98ebd0970c1050eb2cb30a0467c84ceb5&amp;mpshare=1&amp;scene=1&amp;srcid=0707E34icv8iCa5T2X0x4Rdh#rd" target="_blank" rel="external">一文告诉你 Java RMI 和 RPC 的区别！</a></h2><h1 id="2018-07-06"><a href="#2018-07-06" class="headerlink" title="2018-07-06"></a>2018-07-06</h1><h2 id="fzl-转载-2018-AI、机器学习、深度学习与-Tensorflow-相关优秀书籍、课程、示例链接集锦"><a href="#fzl-转载-2018-AI、机器学习、深度学习与-Tensorflow-相关优秀书籍、课程、示例链接集锦" class="headerlink" title="fzl[转载] 2018 AI、机器学习、深度学习与 Tensorflow 相关优秀书籍、课程、示例链接集锦"></a>fzl<sup>[转载]</sup> <a href="https://zhuanlan.zhihu.com/p/37085919" target="_blank" rel="external">2018 AI、机器学习、深度学习与 Tensorflow 相关优秀书籍、课程、示例链接集锦</a></h2><h1 id="2018-07-05"><a href="#2018-07-05" class="headerlink" title="2018-07-05"></a>2018-07-05</h1><h2 id="cxy-转载-『前端大事记』之「几件大事」"><a href="#cxy-转载-『前端大事记』之「几件大事」" class="headerlink" title="cxy[转载] 『前端大事记』之「几件大事」"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5NDkxMTgyNw==&amp;mid=2653060325&amp;idx=1&amp;sn=79f58bb4c320371912a0203bb94017be&amp;chksm=bd565fd98a21d6cfb9bfcd29688fa57f50f6ea22c61d5a29c1c4ba3b5841a52f1bf6092aeb91&amp;mpshare=1&amp;scene=1&amp;srcid=0705FItdnSfDD5zKcYy2eddp#rd" target="_blank" rel="external">『前端大事记』之「几件大事」</a></h2><h2 id="fzl-转载-前端遇上Go-静态资源增量更新的新实践"><a href="#fzl-转载-前端遇上Go-静态资源增量更新的新实践" class="headerlink" title="fzl[转载] 前端遇上Go: 静态资源增量更新的新实践"></a>fzl<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&amp;mid=2651748310&amp;idx=2&amp;sn=4fd53ebffe6a87b29fcb87ef48808ffd&amp;chksm=bd12ae9b8a65278d803400b3faa547df7a86656f6008540f6209d3fa194078873e615da552e8&amp;mpshare=1&amp;scene=1&amp;srcid=0705dVFd9DziP1gQAMWcnNEp#rd" target="_blank" rel="external">前端遇上Go: 静态资源增量更新的新实践</a></h2><h2 id="cy-转载-Golang协程栈初始化"><a href="#cy-转载-Golang协程栈初始化" class="headerlink" title="cy[转载] Golang协程栈初始化"></a>cy<sup>[转载]</sup> <a href="https://studygolang.com/articles/11859" target="_blank" rel="external">Golang协程栈初始化</a></h2><h1 id="2018-07-04"><a href="#2018-07-04" class="headerlink" title="2018-07-04"></a>2018-07-04</h1><h2 id="cy-转载-gRPC服务发现-amp-负载均衡"><a href="#cy-转载-gRPC服务发现-amp-负载均衡" class="headerlink" title="cy[转载] gRPC服务发现&amp;负载均衡"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzAxMzc4Mzk1Mw==&amp;mid=2649839141&amp;idx=1&amp;sn=b4b5cd25329dc8f14f215daea973338a&amp;chksm=8398b0dbb4ef39cdc6d8732b11ed9aa6355db675b350c68aff9f6d3d917a8ddadbd8b58a5bec&amp;mpshare=1&amp;scene=1&amp;srcid=0703SGOFYgUT9O4Tcieb7JzD#rd" target="_blank" rel="external">gRPC服务发现&amp;负载均衡</a></h2><h2 id="cxy-转载-这可能是把Docker概念讲的最清楚的一篇文章"><a href="#cxy-转载-这可能是把Docker概念讲的最清楚的一篇文章" class="headerlink" title="cxy[转载] 这可能是把Docker概念讲的最清楚的一篇文章"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5ODI5Njc2MA==&amp;mid=2655817429&amp;idx=1&amp;sn=f82daff5e9fad66a0e11cdb92c12715e&amp;chksm=bd74c3028a034a14cadf884d97f2a0fc3372d3baa97fb5ae6724e6d1926520eada090c0ffb16&amp;mpshare=1&amp;scene=1&amp;srcid=0704jTKOAPDjN5kssBiaP2Zy#rd" target="_blank" rel="external">这可能是把Docker概念讲的最清楚的一篇文章</a></h2><h2 id="cy-转载-微服务化的数据库设计与读写分离"><a href="#cy-转载-微服务化的数据库设计与读写分离" class="headerlink" title="cy[转载] 微服务化的数据库设计与读写分离"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653194440&amp;idx=1&amp;sn=9bfa90a4e8b00d987a66c2c8147c860d&amp;chksm=8c99fa12bbee7304644bda8f9093e77e10aff4f7386093f90f24b5799ce057a434eb575599a7&amp;scene=0#rd" target="_blank" rel="external">微服务化的数据库设计与读写分离</a></h2><h2 id="fzl-转载-不要用JWT替代session管理（上）：全面了解Token-JWT-OAuth-SAML-SSO"><a href="#fzl-转载-不要用JWT替代session管理（上）：全面了解Token-JWT-OAuth-SAML-SSO" class="headerlink" title="fzl[转载] 不要用JWT替代session管理（上）：全面了解Token,JWT,OAuth,SAML,SSO"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/post/5b3b870a5188251ac85826b8?utm_source=wechat" target="_blank" rel="external">不要用JWT替代session管理（上）：全面了解Token,JWT,OAuth,SAML,SSO</a></h2><h2 id="cxy-原创-栈的研究"><a href="#cxy-原创-栈的研究" class="headerlink" title="cxy[原创] 栈的研究"></a>cxy<sup>[原创]</sup> <a href="https://caixiangyue.github.io/2018/07/04/%E6%A0%88%E7%9A%84%E7%A0%94%E7%A9%B6/" target="_blank" rel="external">栈的研究</a></h2><h1 id="2018-07-03"><a href="#2018-07-03" class="headerlink" title="2018-07-03"></a>2018-07-03</h1><h2 id="ylq-转载-阿里团队最新实践：如何解决大规模分类问题？"><a href="#ylq-转载-阿里团队最新实践：如何解决大规模分类问题？" class="headerlink" title="ylq[转载] 阿里团队最新实践：如何解决大规模分类问题？"></a>ylq<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI0ODcxODk5OA==&amp;mid=2247495704&amp;idx=1&amp;sn=efb09e09f419e18d88d296525bab6186&amp;chksm=e99ec3e1dee94af728feb3611658cc5eb2685bb4f7291ecc92ac0537853dab5657e76b990321&amp;mpshare=1&amp;scene=1&amp;srcid=0703PdNW2Db21EZKqLQqvxZo#rd" target="_blank" rel="external">阿里团队最新实践：如何解决大规模分类问题？</a></h2><h2 id="fzl-转载-响应式布局的常用解决方案对比-媒体查询、百分比、rem和vw-vh"><a href="#fzl-转载-响应式布局的常用解决方案对比-媒体查询、百分比、rem和vw-vh" class="headerlink" title="fzl[转载] 响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh"></a>fzl<sup>[转载]</sup> <a href="https://github.com/forthealllight/blog/issues/13" target="_blank" rel="external">响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh</a></h2><h2 id="cxy-转载-Linux-文件系统-EXT4-的前世今生"><a href="#cxy-转载-Linux-文件系统-EXT4-的前世今生" class="headerlink" title="cxy[转载] Linux 文件系统 EXT4 的前世今生"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI4MDEwNzAzNg==&amp;mid=2649444894&amp;idx=1&amp;sn=842f1f0a2c0e82702aa971c51895aa97&amp;chksm=f3a2736dc4d5fa7bffe3c39652ce1cad16d4196c8a7aae412dee08085b3012a3270d5b34a47e&amp;mpshare=1&amp;scene=1&amp;srcid=0703Za3cX4o0ulswATafcbl3#rd" target="_blank" rel="external">Linux 文件系统 EXT4 的前世今生</a></h2><h1 id="2018-07-02"><a href="#2018-07-02" class="headerlink" title="2018-07-02"></a>2018-07-02</h1><h2 id="cy-转载-干货-分布式架构系统生成全局唯一序列号的一个思路"><a href="#cy-转载-干货-分布式架构系统生成全局唯一序列号的一个思路" class="headerlink" title="cy[转载] 干货 | 分布式架构系统生成全局唯一序列号的一个思路"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s/F7WTNeC3OUr76sZARtqRjw" target="_blank" rel="external">干货 | 分布式架构系统生成全局唯一序列号的一个思路</a></h2><h2 id="cxy-原创-cd增强版脚本"><a href="#cxy-原创-cd增强版脚本" class="headerlink" title="cxy[原创] cd增强版脚本"></a>cxy<sup>[原创]</sup> <a href="https://github.com/T-Club/script-collection/blob/master/cdls/cdls.sh" target="_blank" rel="external">cd增强版脚本</a></h2><h2 id="fzl-转载-Master-the-JavaScript-Interview-What-is-Functional-Programming"><a href="#fzl-转载-Master-the-JavaScript-Interview-What-is-Functional-Programming" class="headerlink" title="fzl[转载] Master the JavaScript Interview: What is Functional Programming?"></a>fzl<sup>[转载]</sup> <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0" target="_blank" rel="external">Master the JavaScript Interview: What is Functional Programming?</a></h2><h1 id="2018-07-01"><a href="#2018-07-01" class="headerlink" title="2018-07-01"></a>2018-07-01</h1><h2 id="fzl-转载-MVC，MVP-和-MVVM-的图示"><a href="#fzl-转载-MVC，MVP-和-MVVM-的图示" class="headerlink" title="fzl [转载] MVC，MVP 和 MVVM 的图示"></a>fzl <sup>[转载]</sup> <a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="external">MVC，MVP 和 MVVM 的图示</a></h2><h2 id="cy-转载-Writing-HTTP-Middleware-in-Go"><a href="#cy-转载-Writing-HTTP-Middleware-in-Go" class="headerlink" title="cy [转载] Writing HTTP Middleware in Go"></a>cy <sup>[转载]</sup> <a href="https://justinas.org/writing-http-middleware-in-go" target="_blank" rel="external">Writing HTTP Middleware in Go</a></h2><h1 id="2018-06-30"><a href="#2018-06-30" class="headerlink" title="2018-06-30"></a>2018-06-30</h1><h2 id="cxy-转载-Git-内部原理之-Git-对象哈希"><a href="#cxy-转载-Git-内部原理之-Git-对象哈希" class="headerlink" title="cxy[转载] Git 内部原理之 Git 对象哈希"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&amp;mid=2651481384&amp;idx=2&amp;sn=2f708f8c61316f222dc5e6bf999bf280&amp;chksm=bd2509578a528041175405d066ef789b0fd9ba5f3f7907e4d40d4991bf3bcead4e530c623ba3&amp;mpshare=1&amp;scene=1&amp;srcid=0630lUdxvepUcKATjZsueBNg#rd" target="_blank" rel="external">Git 内部原理之 Git 对象哈希</a></h2><h2 id="fzl-转载-W3C近期要闻：W3C重点报告发布，综述2018年发展路线图"><a href="#fzl-转载-W3C近期要闻：W3C重点报告发布，综述2018年发展路线图" class="headerlink" title="fzl[转载] W3C近期要闻：W3C重点报告发布，综述2018年发展路线图"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/entry/5b35ab65e51d4558b0357e01" target="_blank" rel="external">W3C近期要闻：W3C重点报告发布，综述2018年发展路线图</a></h2><h2 id="cy-转载-golang信号signal的处理"><a href="#cy-转载-golang信号signal的处理" class="headerlink" title="cy[转载] golang信号signal的处理"></a>cy<sup>[转载]</sup> <a href="https://studygolang.com/articles/4969" target="_blank" rel="external">golang信号signal的处理</a></h2><h1 id="2018-06-29"><a href="#2018-06-29" class="headerlink" title="2018-06-29"></a>2018-06-29</h1><h2 id="fzl-转载-Apache-VS-Nginx，你选对了吗？"><a href="#fzl-转载-Apache-VS-Nginx，你选对了吗？" class="headerlink" title="fzl[转载] Apache VS Nginx，你选对了吗？"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/entry/5b34b2d7e51d4558ae19f2eb" target="_blank" rel="external">Apache VS Nginx，你选对了吗？</a></h2><h2 id="cxy-转载-正则表达式和-CPU-100-有什么故事？"><a href="#cxy-转载-正则表达式和-CPU-100-有什么故事？" class="headerlink" title="cxy[转载] 正则表达式和 CPU 100%有什么故事？"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&amp;mid=2247485122&amp;idx=1&amp;sn=302c081a08ccd0be5284fa9651f96e87&amp;chksm=ebf6debddc8157ab75148e6f63a836af08096f53ed1c03b014d23d09b61172614468f1c6b1da&amp;mpshare=1&amp;scene=1&amp;srcid=0629kaorgCe4EA1ecjWdbAbm#rd" target="_blank" rel="external">正则表达式和 CPU 100%有什么故事？</a></h2><h2 id="cxy-转载-如何将高并发拉下神坛"><a href="#cxy-转载-如何将高并发拉下神坛" class="headerlink" title="cxy[转载] 如何将高并发拉下神坛!"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI1NDQ3MjQxNA==&amp;mid=2247486408&amp;idx=1&amp;sn=1e33de636f94fee3aae3b41c729444a5&amp;chksm=e9c5f279deb27b6f2b3ee87de8c84900806b6339610e37bf2e426830253add03343b80dae1d9&amp;mpshare=1&amp;scene=1&amp;srcid=0629Kly0J6QEDv9w4FkO1cd0#rd" target="_blank" rel="external">如何将高并发拉下神坛!</a></h2><h2 id="cy-转载-那些年，云厂商宕机教会我们的事"><a href="#cy-转载-那些年，云厂商宕机教会我们的事" class="headerlink" title="cy[转载] 那些年，云厂商宕机教会我们的事"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=2651007968&amp;idx=1&amp;sn=38d4dfd8cb5a0746d4051947e2de38a1&amp;chksm=bdbed3b38ac95aa510c086b07ae4ea6090e4f9db1cd8c1c143845956ee530ad258ea59f48d76&amp;mpshare=1&amp;scene=1&amp;srcid=0629mMwAyj3zRbfTJbSauLrX#rd" target="_blank" rel="external">那些年，云厂商宕机教会我们的事</a></h2><h1 id="2018-06-28"><a href="#2018-06-28" class="headerlink" title="2018-06-28"></a>2018-06-28</h1><h2 id="fzl-转载-饿了么交易系统应用架构演进"><a href="#fzl-转载-饿了么交易系统应用架构演进" class="headerlink" title="fzl[转载] 饿了么交易系统应用架构演进"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/post/5b331359f265da597236d01c" target="_blank" rel="external">饿了么交易系统应用架构演进</a></h2><h2 id="fzl-转载-JavaScript-What’s-new-in-ECMAScript-2018-ES2018"><a href="#fzl-转载-JavaScript-What’s-new-in-ECMAScript-2018-ES2018" class="headerlink" title="fzl[转载] JavaScript: What’s new in ECMAScript 2018 (ES2018)?"></a>fzl<sup>[转载]</sup> <a href="https://medium.com/front-end-hacking/javascript-whats-new-in-ecmascript-2018-es2018-17ede97f36d5" target="_blank" rel="external">JavaScript: What’s new in ECMAScript 2018 (ES2018)?</a></h2><h2 id="cy-转载-golang-http-server探究（上）"><a href="#cy-转载-golang-http-server探究（上）" class="headerlink" title="cy[转载] golang http server探究（上）"></a>cy<sup>[转载]</sup> <a href="https://studygolang.com/articles/8395" target="_blank" rel="external">golang http server探究（上）</a></h2><h2 id="cxy-转载-HashMap源码，你知道多少？"><a href="#cxy-转载-HashMap源码，你知道多少？" class="headerlink" title="cxy[转载] HashMap源码，你知道多少？"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI5ODI5NDkxMw==&amp;mid=2247487128&amp;idx=1&amp;sn=4e8c4fcb071233dc87f3e434400bbe82&amp;chksm=eca94576dbdecc60f1cec988687c38ddc923ee80968fc2aea1282c6b43ae5da0a3e0ec8e2cee&amp;scene=0#rd" target="_blank" rel="external">HashMap源码，你知道多少？</a></h2><h2 id="ylq-转载-谷歌AI可以预测你的死亡时间，准确率高达95"><a href="#ylq-转载-谷歌AI可以预测你的死亡时间，准确率高达95" class="headerlink" title="ylq[转载] 谷歌AI可以预测你的死亡时间，准确率高达95%"></a>ylq<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5ODE1NDYyMA==&amp;mid=2653385867&amp;idx=1&amp;sn=a39be35e765b38a9d18ebe6428945b1a&amp;chksm=bd1ccc988a6b458e51592d2d0071cbbe4cf39d39b253d0a23117ca4833c2ba6aac00f784c87c&amp;mpshare=1&amp;scene=1&amp;srcid=0628mP4H6c5fGJWZESIeXhzn#rd" target="_blank" rel="external">谷歌AI可以预测你的死亡时间，准确率高达95%</a></h2><h1 id="2018-06-27"><a href="#2018-06-27" class="headerlink" title="2018-06-27"></a>2018-06-27</h1><h2 id="cy-转载-Send-and-receive-operations-on-channel"><a href="#cy-转载-Send-and-receive-operations-on-channel" class="headerlink" title="cy[转载] Send and receive operations on channel"></a>cy<sup>[转载]</sup> <a href="https://github.com/NanXiao/golang-101-hacks/blob/master/posts/send-and-receive-operations-on-channel.md" target="_blank" rel="external">Send and receive operations on channel</a></h2><h2 id="cxy-转载-怎样阅读源代码？"><a href="#cxy-转载-怎样阅读源代码？" class="headerlink" title="cxy[转载] 怎样阅读源代码？"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI3MTEwODc5Ng==&amp;mid=2650859136&amp;idx=1&amp;sn=9a7d24de055fc6beeb76e1a353758248&amp;mpshare=1&amp;scene=1&amp;srcid=0627gap2jeSmZgkXDudGa9GC#rd" target="_blank" rel="external">怎样阅读源代码？</a></h2><h2 id="cxy-转载-CPWechatXposed"><a href="#cxy-转载-CPWechatXposed" class="headerlink" title="cxy[转载] CPWechatXposed"></a>cxy<sup>[转载]</sup> <a href="https://github.com/coder-pig/CPWechatXposed" target="_blank" rel="external">CPWechatXposed</a></h2><blockquote>
+<p>项目简介: 笔者折腾Xposed模块的一些记录，主要是研究逆向技术，不会做任何适配！<br>只保证在笔者手机上是正常运行的，代码都是开源的，有问题欢迎提issues，<br>教程会同步更新到掘金上，谢谢~</p>
+</blockquote>
+<h2 id="cxy-转载-自动抢红包，点赞朋友圈，AccessibilityService解放你的双手"><a href="#cxy-转载-自动抢红包，点赞朋友圈，AccessibilityService解放你的双手" class="headerlink" title="cxy[转载] 自动抢红包，点赞朋友圈，AccessibilityService解放你的双手"></a>cxy<sup>[转载]</sup> <a href="https://juejin.im/post/5ad05aee518825651d081721" target="_blank" rel="external">自动抢红包，点赞朋友圈，AccessibilityService解放你的双手</a></h2><h2 id="fzl-转载-Deno-并不是下一代-Node-js"><a href="#fzl-转载-Deno-并不是下一代-Node-js" class="headerlink" title="fzl[转载] Deno 并不是下一代 Node.js"></a>fzl<sup>[转载]</sup> <a href="https://cnodejs.org/topic/5b14a93b57137f22415c48b3" target="_blank" rel="external">Deno 并不是下一代 Node.js</a></h2><h1 id="2018-06-26"><a href="#2018-06-26" class="headerlink" title="2018-06-26"></a>2018-06-26</h1><h2 id="fzl-转载-RESETful-API-设计规范"><a href="#fzl-转载-RESETful-API-设计规范" class="headerlink" title="fzl[转载] RESETful API 设计规范"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/post/5b30ef0ee51d4558dd699414" target="_blank" rel="external">RESETful API 设计规范</a></h2><h2 id="cxy-转载-通俗的解释一下什么是-RPC-框架？"><a href="#cxy-转载-通俗的解释一下什么是-RPC-框架？" class="headerlink" title="cxy[转载] 通俗的解释一下什么是 RPC 框架？"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzAxMzc4Mzk1Mw==&amp;mid=2649839074&amp;idx=1&amp;sn=a1929cf03b4b2b7f47997c7cce5d5637&amp;chksm=8398b31cb4ef3a0a2dade5d07960d0087091180506f1fb6603d2e8d67ede3a6b6a8f33af3b26&amp;mpshare=1&amp;scene=1&amp;srcid=0626p335M8OtCjLql50OPoJc#rd" target="_blank" rel="external">通俗的解释一下什么是 RPC 框架？</a></h2><h2 id="cy-转载-Dapper分布式跟踪系统论文"><a href="#cy-转载-Dapper分布式跟踪系统论文" class="headerlink" title="cy[转载] Dapper分布式跟踪系统论文"></a>cy<sup>[转载]</sup> <a href="https://gocn.vip/article/849" target="_blank" rel="external">Dapper分布式跟踪系统论文</a></h2><h1 id="2018-06-25"><a href="#2018-06-25" class="headerlink" title="2018-06-25"></a>2018-06-25</h1><h2 id="cxy-转载-前端开发的领域驱动设计【语雀精选】"><a href="#cxy-转载-前端开发的领域驱动设计【语雀精选】" class="headerlink" title="cxy[转载] 前端开发的领域驱动设计【语雀精选】"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzU1NTUwMzkwOA==&amp;mid=2247483894&amp;idx=1&amp;sn=66b48047030dbe5c702e2eca197c6bab&amp;chksm=fbd219bdcca590abcaec9fd6d49f54c4ace2c9528e365da58bb5c247af03f8d65c2c5d107da2&amp;mpshare=1&amp;scene=1&amp;srcid=0624SFi5vUZLwzG9JihsRocF#rd" target="_blank" rel="external">前端开发的领域驱动设计【语雀精选】</a></h2><h2 id="ylq-转载-10行代码实现目标检测，请收下这份教程"><a href="#ylq-转载-10行代码实现目标检测，请收下这份教程" class="headerlink" title="ylq[转载] 10行代码实现目标检测，请收下这份教程"></a>ylq<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI4MDMwMDM3NA==&amp;mid=2247485797&amp;idx=2&amp;sn=6dad06f6e1fb4368c5fc7d070e3a0f31&amp;chksm=ebbbd75cdccc5e4a388c1f337b7483e6e50c69d28099ada7c78e38773aa075b3943c3adacb33&amp;mpshare=1&amp;scene=1&amp;srcid=0625vfrw1z1ILhpbFoUdQtAO#rd" target="_blank" rel="external">10行代码实现目标检测，请收下这份教程</a></h2><h2 id="fzl-转载-浅谈使用-Vue-构建前端-10w-代码量的单页面应用开发底层"><a href="#fzl-转载-浅谈使用-Vue-构建前端-10w-代码量的单页面应用开发底层" class="headerlink" title="fzl[转载] 浅谈使用 Vue 构建前端 10w+ 代码量的单页面应用开发底层"></a>fzl<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&amp;mid=2651554452&amp;idx=1&amp;sn=e7195b33e6828be86beb634e4d9d263b&amp;chksm=80255555b752dc434988cf02893379ec26121bff72dc28ef855e52950ecd4fd22739ff54f3a8&amp;mpshare=1&amp;scene=1&amp;srcid=0625oDEsHsatiNtB8mik2oLd#rd" target="_blank" rel="external">浅谈使用 Vue 构建前端 10w+ 代码量的单页面应用开发底层</a></h2><h2 id="ylq-转载-学界-对抗式协作：一个框架解决多个无监督学习视觉问题"><a href="#ylq-转载-学界-对抗式协作：一个框架解决多个无监督学习视觉问题" class="headerlink" title="ylq[转载] 学界 | 对抗式协作：一个框架解决多个无监督学习视觉问题"></a>ylq<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650744268&amp;idx=4&amp;sn=72983c7fede2834519121347232a3af8&amp;chksm=871ae1b2b06d68a46ef41ef6b36829437249eddadb1470ad66cb01ce21901dae2bd6017b6b55&amp;mpshare=1&amp;scene=1&amp;srcid=0625FVnhO0DayP90gINDcNLe#rd" target="_blank" rel="external">学界 | 对抗式协作：一个框架解决多个无监督学习视觉问题</a></h2><h2 id="cy-转载-几十万人同时在线的直播间聊天，如何设计服务端架构？"><a href="#cy-转载-几十万人同时在线的直播间聊天，如何设计服务端架构？" class="headerlink" title="cy[转载] 几十万人同时在线的直播间聊天，如何设计服务端架构？"></a>cy<sup>[转载]</sup> <a href="https://juejin.im/post/5b30a7bc6fb9a00e5763006a" target="_blank" rel="external">几十万人同时在线的直播间聊天，如何设计服务端架构？</a></h2><h2 id="cxy-转载-在Linux中使用环境变量进行提权"><a href="#cxy-转载-在Linux中使用环境变量进行提权" class="headerlink" title="cxy[转载] 在Linux中使用环境变量进行提权"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI4MDEwNzAzNg==&amp;mid=2649444871&amp;idx=1&amp;sn=dc05c1c9e377743bd880bb30dd93a5fb&amp;chksm=f3a27374c4d5fa62045600c3be5a5c883b25332ad039ed2414c72a2b5c56b01df4c7495d55dd&amp;mpshare=1&amp;scene=1&amp;srcid=0625tzaHEcYAfOUi1zaNPeoJ#rd" target="_blank" rel="external">在Linux中使用环境变量进行提权</a></h2><h1 id="2018-06-24"><a href="#2018-06-24" class="headerlink" title="2018-06-24"></a>2018-06-24</h1><h2 id="cxy-转载-Linux系统进程的一些知识总结，进程与线程之间的纠葛…"><a href="#cxy-转载-Linux系统进程的一些知识总结，进程与线程之间的纠葛…" class="headerlink" title="cxy[转载] Linux系统进程的一些知识总结，进程与线程之间的纠葛…"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI4MDEwNzAzNg==&amp;mid=2649444873&amp;idx=2&amp;sn=4507472b600776fa9ebf8519e2bece1f&amp;chksm=f3a2737ac4d5fa6cc39a3a751785eb1dfbeee0cd3f5ae59a8bb28be5cdc52346391f06d1920f&amp;mpshare=1&amp;scene=1&amp;srcid=0624KloZOQTXjpl2RWEYTgBB#rd" target="_blank" rel="external">Linux系统进程的一些知识总结，进程与线程之间的纠葛…</a></h2><h2 id="fzl-转载-译-ES2018（ES9）的新特性"><a href="#fzl-转载-译-ES2018（ES9）的新特性" class="headerlink" title="fzl[转载] [译] ES2018（ES9）的新特性"></a>fzl<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzA5NzkwNDk3MQ==&amp;mid=2650587491&amp;idx=1&amp;sn=dddf6bcb73c0b02fe14109a46d954791&amp;chksm=8891d147bfe65851c8371f9eac54ada84deda780f2edc295dc9108267a807d29861145054f07&amp;mpshare=1&amp;scene=1&amp;srcid=0624Tr5J7CLCIslCUbAgzaOc#rd" target="_blank" rel="external">[译] ES2018（ES9）的新特性</a></h2><h2 id="cy-转载-HTTP—-HTTP2-0新特性"><a href="#cy-转载-HTTP—-HTTP2-0新特性" class="headerlink" title="cy[转载] HTTP—-HTTP2.0新特性"></a>cy<sup>[转载]</sup> <a href="https://juejin.im/post/5a4dfb2ef265da43305ee2d0" target="_blank" rel="external">HTTP—-HTTP2.0新特性</a></h2><h1 id="2018-06-23"><a href="#2018-06-23" class="headerlink" title="2018-06-23"></a>2018-06-23</h1><h2 id="fzl-转载-Picasso：开启大前端的未来"><a href="#fzl-转载-Picasso：开启大前端的未来" class="headerlink" title="fzl[转载] Picasso：开启大前端的未来"></a>fzl<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&amp;mid=2651748157&amp;idx=1&amp;sn=d4a6e88018c59f21f5942617c2e5067e&amp;chksm=bd12ae708a6527662bf3ddb493309065e66a6d98c0c5887f27a9aeec7d56fe4445b2e58dae41&amp;mpshare=1&amp;scene=1&amp;srcid=0623gNGVzpJEWx8Vxva3EKQ3#rd" target="_blank" rel="external">Picasso：开启大前端的未来</a></h2><h2 id="fzl-转载-译-设计大型-JavaScript-应用程序"><a href="#fzl-转载-译-设计大型-JavaScript-应用程序" class="headerlink" title="fzl[转载] [译] 设计大型 JavaScript 应用程序"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/post/5aedd93b51882567244ddfc0" target="_blank" rel="external">[译] 设计大型 JavaScript 应用程序</a></h2><h2 id="cxy-转载-一道非常棘手的-Java-面试题：i-是线程安全的吗？"><a href="#cxy-转载-一道非常棘手的-Java-面试题：i-是线程安全的吗？" class="headerlink" title="cxy[转载] 一道非常棘手的 Java 面试题：i++ 是线程安全的吗？"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247486263&amp;idx=1&amp;sn=74de5f37ed7cc9392ac1464bdac2a3ea&amp;chksm=eb538e01dc240717f974e723654bc007502e0e1aa97778a1169617f12b4105328a891ace6991&amp;mpshare=1&amp;scene=1&amp;srcid=0623EtMaADQwvk3iGLNNj5SU#rd" target="_blank" rel="external">一道非常棘手的 Java 面试题：i++ 是线程安全的吗？</a></h2><h2 id="cy-转载-行为树behavior3go介绍"><a href="#cy-转载-行为树behavior3go介绍" class="headerlink" title="cy[转载] 行为树behavior3go介绍"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzAxMzc4Mzk1Mw==&amp;mid=2649839105&amp;idx=1&amp;sn=17324ab88da3719bddbf5e731c673d91&amp;chksm=8398b0ffb4ef39e9b416b47d9af00711629f23ef915979ec0ba673af450b4e78e9e4685b5c1b&amp;mpshare=1&amp;scene=1&amp;srcid=0623hDhwyDUgkHFdpSD0mwJX#rd" target="_blank" rel="external">行为树behavior3go介绍</a></h2><h1 id="2018-06-22"><a href="#2018-06-22" class="headerlink" title="2018-06-22"></a>2018-06-22</h1><h2 id="cy-转载-Channels-In-Go"><a href="#cy-转载-Channels-In-Go" class="headerlink" title="cy[转载] Channels In Go"></a>cy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzIyNzUwMjM2MA==&amp;mid=2247485672&amp;idx=1&amp;sn=b4f12e4a2d46edb03b8fdf2320331e21&amp;chksm=e861789fdf16f1896f999bd9b9af225221ed36c71ba3f64eb6e39c04e7d04d05a4b3a418977b&amp;mpshare=1&amp;scene=1&amp;srcid=0622GZ3euML5vaWSUSI01wjN#rd" target="_blank" rel="external">Channels In Go</a></h2><h2 id="ylq-转载-吴恩达授课，斯坦福CS230深度学习课程资源开放"><a href="#ylq-转载-吴恩达授课，斯坦福CS230深度学习课程资源开放" class="headerlink" title="ylq[转载] 吴恩达授课，斯坦福CS230深度学习课程资源开放"></a>ylq<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650744044&amp;idx=1&amp;sn=02f533293c96c727099af69486c5f273&amp;chksm=871ae092b06d69840b5732c895a27e072a6926a32725a1c08b64f2f6c220c533e564cf59b8c4&amp;mpshare=1&amp;scene=1&amp;srcid=0622y0dCbGomEd4wmwNAwXT8#rd" target="_blank" rel="external">吴恩达授课，斯坦福CS230深度学习课程资源开放</a></h2><h2 id="cy-转载-Pool"><a href="#cy-转载-Pool" class="headerlink" title="cy[转载] Pool"></a>cy<sup>[转载]</sup> <a href="https://github.com/fatih/pool" target="_blank" rel="external">Pool</a></h2><h1 id="2018-06-21"><a href="#2018-06-21" class="headerlink" title="2018-06-21"></a>2018-06-21</h1><h2 id="cxy-转载-廖威雄-学习Linux必备的硬件基础一网打尽"><a href="#cxy-转载-廖威雄-学习Linux必备的硬件基础一网打尽" class="headerlink" title="cxy[转载] 廖威雄: 学习Linux必备的硬件基础一网打尽"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzI3NzA5MzUxNA==&amp;mid=2664605455&amp;idx=1&amp;sn=ae210d8ecaa4f274ab6516be359d2878&amp;chksm=f04d8aeac73a03fc51b63cc533963cfed4cb72c8a75cfde94867eb631c7d24b651dff369af8c&amp;mpshare=1&amp;scene=1&amp;srcid=0621UC77nh5xHVmg7BHbssfm#rd" target="_blank" rel="external">廖威雄: 学习Linux必备的硬件基础一网打尽</a></h2><h2 id="fzl-转载-杭州-GraphQLParty-第一场-GraphQL-数据聚合层解放前后端文字版"><a href="#fzl-转载-杭州-GraphQLParty-第一场-GraphQL-数据聚合层解放前后端文字版" class="headerlink" title="fzl[转载] 杭州 GraphQLParty 第一场-GraphQL 数据聚合层解放前后端文字版"></a>fzl<sup>[转载]</sup> <a href="https://juejin.im/post/5b29cd2be51d4558d217c644" target="_blank" rel="external">杭州 GraphQLParty 第一场-GraphQL 数据聚合层解放前后端文字版</a></h2><h1 id="2018-06-20"><a href="#2018-06-20" class="headerlink" title="2018-06-20"></a>2018-06-20</h1><h2 id="cxy-转载-程序员如果也能像C罗一样自律和勤奋，必将成为大神"><a href="#cxy-转载-程序员如果也能像C罗一样自律和勤奋，必将成为大神" class="headerlink" title="cxy[转载] 程序员如果也能像C罗一样自律和勤奋，必将成为大神"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MzAxMTg2MjA2OA==&amp;mid=2649842448&amp;idx=1&amp;sn=5ad3b90363f7510f182d6f8fb794f5ef&amp;chksm=83bf6a4bb4c8e35dcf44c4a21d8183196a0350b34a0a68752fff93728eb229d089764f86d162&amp;scene=0#rd" target="_blank" rel="external">程序员如果也能像C罗一样自律和勤奋，必将成为大神</a></h2><h2 id="cxy-转载-为什么我的儿子不沉迷游戏？一位游戏策划家长的分享"><a href="#cxy-转载-为什么我的儿子不沉迷游戏？一位游戏策划家长的分享" class="headerlink" title="cxy[转载] 为什么我的儿子不沉迷游戏？一位游戏策划家长的分享"></a>cxy<sup>[转载]</sup> <a href="https://mp.weixin.qq.com/s?__biz=MjM5OTA1MDUyMA==&amp;mid=2655441990&amp;idx=1&amp;sn=9afdb3039b30d1cd2a9938f0a401a0bf&amp;chksm=bd7318318a049127d22fe74ca804a57b295282d9c35dabd4c003ca49b5458f89ddf9046449a0&amp;mpshare=1&amp;scene=1&amp;srcid=0620ZQntqUNdiA85M5x5feh1#rd" target="_blank" rel="external">为什么我的儿子不沉迷游戏？一位游戏策划家长的分享</a></h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TC日志/" rel="tag"># TC日志</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/28/20180628/" rel="next" title="自制一个简单不能再简单的模板">
+                <i class="fa fa-chevron-left"></i> 自制一个简单不能再简单的模板
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/30/20180430/" rel="prev" title="排序算法 「JavaScript实现」">
+                排序算法 「JavaScript实现」 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="fzliang" />
+          <p class="site-author-name" itemprop="name">fzliang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fzliang" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5556164864" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-15"><span class="nav-number">1.</span> <span class="nav-text">2018-07-15</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处"><span class="nav-number">1.1.</span> <span class="nav-text">cy[转载] 2018年已过半，Kubernetes和云原生的巨浪要把云计算带向何处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-Mockito浅谈"><span class="nav-number">1.2.</span> <span class="nav-text">cxy[转载] Mockito浅谈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？"><span class="nav-number">1.3.</span> <span class="nav-text">fzl[转载]实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-14"><span class="nav-number">2.</span> <span class="nav-text">2018-07-14</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-What-Is-React"><span class="nav-number">2.1.</span> <span class="nav-text">fzl[转载] What Is React?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-JDK-11-将引入低延迟-GC，大幅度缩短-GC-暂停时长"><span class="nav-number">2.2.</span> <span class="nav-text">cy[转载] JDK 11 将引入低延迟 GC，大幅度缩短 GC 暂停时长</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-13"><span class="nav-number">3.</span> <span class="nav-text">2018-07-13</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-求取一份极致的简单：全链路跟踪中间件探索之路"><span class="nav-number">3.1.</span> <span class="nav-text">cy[转载] 求取一份极致的简单：全链路跟踪中间件探索之路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-如何提高代码质量？"><span class="nav-number">3.2.</span> <span class="nav-text">cy[转载] 如何提高代码质量？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-五分钟理解一致性哈希算法"><span class="nav-number">3.3.</span> <span class="nav-text">cxy[转载] 五分钟理解一致性哈希算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-反应式宣言"><span class="nav-number">3.4.</span> <span class="nav-text">cy[转载] 反应式宣言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-12"><span class="nav-number">4.</span> <span class="nav-text">2018-07-12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-译-React性能优化-虚拟Dom原理浅析"><span class="nav-number">4.1.</span> <span class="nav-text">fzl[转载] [译] React性能优化-虚拟Dom原理浅析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-实施微前端的六种方式"><span class="nav-number">4.2.</span> <span class="nav-text">fzl[转载] 实施微前端的六种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Go-compiler-SSA-optimization-rules-description-language"><span class="nav-number">4.3.</span> <span class="nav-text">cy[转载] Go compiler: SSA optimization rules description language</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-编程人生：毕业到迈入工作的第五年，发生了这些变化"><span class="nav-number">4.4.</span> <span class="nav-text">cxy[转载] 编程人生：毕业到迈入工作的第五年，发生了这些变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Cache-Aside-Pattern"><span class="nav-number">4.5.</span> <span class="nav-text">cy[转载] Cache Aside Pattern</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-11"><span class="nav-number">5.</span> <span class="nav-text">2018-07-11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Go语言并发模型：使用-context"><span class="nav-number">5.1.</span> <span class="nav-text">cy[转载] Go语言并发模型：使用 context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-高阶函数，你怎么那么漂亮呢！"><span class="nav-number">5.2.</span> <span class="nav-text">fzl[转载] 高阶函数，你怎么那么漂亮呢！</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-10"><span class="nav-number">6.</span> <span class="nav-text">2018-07-10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-Vue响应式系统是如何实现的"><span class="nav-number">6.1.</span> <span class="nav-text">fzl[转载] Vue响应式系统是如何实现的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-使用-watch-帮你重复执行命令"><span class="nav-number">6.2.</span> <span class="nav-text">cxy[转载] 使用 watch 帮你重复执行命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-keep-alive：组件级缓存"><span class="nav-number">6.3.</span> <span class="nav-text">fzl[转载]  keep-alive：组件级缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-虚拟IP"><span class="nav-number">6.4.</span> <span class="nav-text">cy[转载] 虚拟IP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-09"><span class="nav-number">7.</span> <span class="nav-text">2018-07-09</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-缓存那些事"><span class="nav-number">7.1.</span> <span class="nav-text">cy[转载] 缓存那些事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-Airbnb-CSS-in-JavaScript-风格指南"><span class="nav-number">7.2.</span> <span class="nav-text">fzl[转载] Airbnb CSS-in-JavaScript 风格指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-一篇全面的CSS布局学习指南-译"><span class="nav-number">7.3.</span> <span class="nav-text">fzl[转载] 一篇全面的CSS布局学习指南 [译]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-白话网站架构演进"><span class="nav-number">7.4.</span> <span class="nav-text">cxy[转载] 白话网站架构演进</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-08"><span class="nav-number">8.</span> <span class="nav-text">2018-07-08</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-进程、线程、协程与goruntine"><span class="nav-number">8.1.</span> <span class="nav-text">fzl[转载]  进程、线程、协程与goruntine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-进程-线程-协程-管程-纤程-概念对比理解"><span class="nav-number">8.2.</span> <span class="nav-text">fzl[转载] 进程 线程 协程 管程 纤程 概念对比理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-07"><span class="nav-number">9.</span> <span class="nav-text">2018-07-07</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-架构设计：负载均衡层设计方案之负载场景和解决方式篇"><span class="nav-number">9.1.</span> <span class="nav-text">cy[转载] 架构设计：负载均衡层设计方案之负载场景和解决方式篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-在Gogland里对GO程序进行单元测试！"><span class="nav-number">9.2.</span> <span class="nav-text">cy[转载] 在Gogland里对GO程序进行单元测试！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-一文告诉你-Java-RMI-和-RPC-的区别！"><span class="nav-number">9.3.</span> <span class="nav-text">cxy[转载] 一文告诉你 Java RMI 和 RPC 的区别！</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-06"><span class="nav-number">10.</span> <span class="nav-text">2018-07-06</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-2018-AI、机器学习、深度学习与-Tensorflow-相关优秀书籍、课程、示例链接集锦"><span class="nav-number">10.1.</span> <span class="nav-text">fzl[转载] 2018 AI、机器学习、深度学习与 Tensorflow 相关优秀书籍、课程、示例链接集锦</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-05"><span class="nav-number">11.</span> <span class="nav-text">2018-07-05</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-『前端大事记』之「几件大事」"><span class="nav-number">11.1.</span> <span class="nav-text">cxy[转载] 『前端大事记』之「几件大事」</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-前端遇上Go-静态资源增量更新的新实践"><span class="nav-number">11.2.</span> <span class="nav-text">fzl[转载] 前端遇上Go: 静态资源增量更新的新实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Golang协程栈初始化"><span class="nav-number">11.3.</span> <span class="nav-text">cy[转载] Golang协程栈初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-04"><span class="nav-number">12.</span> <span class="nav-text">2018-07-04</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-gRPC服务发现-amp-负载均衡"><span class="nav-number">12.1.</span> <span class="nav-text">cy[转载] gRPC服务发现&负载均衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-这可能是把Docker概念讲的最清楚的一篇文章"><span class="nav-number">12.2.</span> <span class="nav-text">cxy[转载] 这可能是把Docker概念讲的最清楚的一篇文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-微服务化的数据库设计与读写分离"><span class="nav-number">12.3.</span> <span class="nav-text">cy[转载] 微服务化的数据库设计与读写分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-不要用JWT替代session管理（上）：全面了解Token-JWT-OAuth-SAML-SSO"><span class="nav-number">12.4.</span> <span class="nav-text">fzl[转载] 不要用JWT替代session管理（上）：全面了解Token,JWT,OAuth,SAML,SSO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-原创-栈的研究"><span class="nav-number">12.5.</span> <span class="nav-text">cxy[原创] 栈的研究</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-03"><span class="nav-number">13.</span> <span class="nav-text">2018-07-03</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ylq-转载-阿里团队最新实践：如何解决大规模分类问题？"><span class="nav-number">13.1.</span> <span class="nav-text">ylq[转载] 阿里团队最新实践：如何解决大规模分类问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-响应式布局的常用解决方案对比-媒体查询、百分比、rem和vw-vh"><span class="nav-number">13.2.</span> <span class="nav-text">fzl[转载] 响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-Linux-文件系统-EXT4-的前世今生"><span class="nav-number">13.3.</span> <span class="nav-text">cxy[转载] Linux 文件系统 EXT4 的前世今生</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-02"><span class="nav-number">14.</span> <span class="nav-text">2018-07-02</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-干货-分布式架构系统生成全局唯一序列号的一个思路"><span class="nav-number">14.1.</span> <span class="nav-text">cy[转载] 干货 | 分布式架构系统生成全局唯一序列号的一个思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-原创-cd增强版脚本"><span class="nav-number">14.2.</span> <span class="nav-text">cxy[原创] cd增强版脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-Master-the-JavaScript-Interview-What-is-Functional-Programming"><span class="nav-number">14.3.</span> <span class="nav-text">fzl[转载] Master the JavaScript Interview: What is Functional Programming?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-07-01"><span class="nav-number">15.</span> <span class="nav-text">2018-07-01</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-MVC，MVP-和-MVVM-的图示"><span class="nav-number">15.1.</span> <span class="nav-text">fzl [转载] MVC，MVP 和 MVVM 的图示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Writing-HTTP-Middleware-in-Go"><span class="nav-number">15.2.</span> <span class="nav-text">cy [转载] Writing HTTP Middleware in Go</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-30"><span class="nav-number">16.</span> <span class="nav-text">2018-06-30</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-Git-内部原理之-Git-对象哈希"><span class="nav-number">16.1.</span> <span class="nav-text">cxy[转载] Git 内部原理之 Git 对象哈希</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-W3C近期要闻：W3C重点报告发布，综述2018年发展路线图"><span class="nav-number">16.2.</span> <span class="nav-text">fzl[转载] W3C近期要闻：W3C重点报告发布，综述2018年发展路线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-golang信号signal的处理"><span class="nav-number">16.3.</span> <span class="nav-text">cy[转载] golang信号signal的处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-29"><span class="nav-number">17.</span> <span class="nav-text">2018-06-29</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-Apache-VS-Nginx，你选对了吗？"><span class="nav-number">17.1.</span> <span class="nav-text">fzl[转载] Apache VS Nginx，你选对了吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-正则表达式和-CPU-100-有什么故事？"><span class="nav-number">17.2.</span> <span class="nav-text">cxy[转载] 正则表达式和 CPU 100%有什么故事？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-如何将高并发拉下神坛"><span class="nav-number">17.3.</span> <span class="nav-text">cxy[转载] 如何将高并发拉下神坛!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-那些年，云厂商宕机教会我们的事"><span class="nav-number">17.4.</span> <span class="nav-text">cy[转载] 那些年，云厂商宕机教会我们的事</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-28"><span class="nav-number">18.</span> <span class="nav-text">2018-06-28</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-饿了么交易系统应用架构演进"><span class="nav-number">18.1.</span> <span class="nav-text">fzl[转载] 饿了么交易系统应用架构演进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-JavaScript-What’s-new-in-ECMAScript-2018-ES2018"><span class="nav-number">18.2.</span> <span class="nav-text">fzl[转载] JavaScript: What’s new in ECMAScript 2018 (ES2018)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-golang-http-server探究（上）"><span class="nav-number">18.3.</span> <span class="nav-text">cy[转载] golang http server探究（上）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-HashMap源码，你知道多少？"><span class="nav-number">18.4.</span> <span class="nav-text">cxy[转载] HashMap源码，你知道多少？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ylq-转载-谷歌AI可以预测你的死亡时间，准确率高达95"><span class="nav-number">18.5.</span> <span class="nav-text">ylq[转载] 谷歌AI可以预测你的死亡时间，准确率高达95%</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-27"><span class="nav-number">19.</span> <span class="nav-text">2018-06-27</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Send-and-receive-operations-on-channel"><span class="nav-number">19.1.</span> <span class="nav-text">cy[转载] Send and receive operations on channel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-怎样阅读源代码？"><span class="nav-number">19.2.</span> <span class="nav-text">cxy[转载] 怎样阅读源代码？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-CPWechatXposed"><span class="nav-number">19.3.</span> <span class="nav-text">cxy[转载] CPWechatXposed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-自动抢红包，点赞朋友圈，AccessibilityService解放你的双手"><span class="nav-number">19.4.</span> <span class="nav-text">cxy[转载] 自动抢红包，点赞朋友圈，AccessibilityService解放你的双手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-Deno-并不是下一代-Node-js"><span class="nav-number">19.5.</span> <span class="nav-text">fzl[转载] Deno 并不是下一代 Node.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-26"><span class="nav-number">20.</span> <span class="nav-text">2018-06-26</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-RESETful-API-设计规范"><span class="nav-number">20.1.</span> <span class="nav-text">fzl[转载] RESETful API 设计规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-通俗的解释一下什么是-RPC-框架？"><span class="nav-number">20.2.</span> <span class="nav-text">cxy[转载] 通俗的解释一下什么是 RPC 框架？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Dapper分布式跟踪系统论文"><span class="nav-number">20.3.</span> <span class="nav-text">cy[转载] Dapper分布式跟踪系统论文</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-25"><span class="nav-number">21.</span> <span class="nav-text">2018-06-25</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-前端开发的领域驱动设计【语雀精选】"><span class="nav-number">21.1.</span> <span class="nav-text">cxy[转载] 前端开发的领域驱动设计【语雀精选】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ylq-转载-10行代码实现目标检测，请收下这份教程"><span class="nav-number">21.2.</span> <span class="nav-text">ylq[转载] 10行代码实现目标检测，请收下这份教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-浅谈使用-Vue-构建前端-10w-代码量的单页面应用开发底层"><span class="nav-number">21.3.</span> <span class="nav-text">fzl[转载] 浅谈使用 Vue 构建前端 10w+ 代码量的单页面应用开发底层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ylq-转载-学界-对抗式协作：一个框架解决多个无监督学习视觉问题"><span class="nav-number">21.4.</span> <span class="nav-text">ylq[转载] 学界 | 对抗式协作：一个框架解决多个无监督学习视觉问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-几十万人同时在线的直播间聊天，如何设计服务端架构？"><span class="nav-number">21.5.</span> <span class="nav-text">cy[转载] 几十万人同时在线的直播间聊天，如何设计服务端架构？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-在Linux中使用环境变量进行提权"><span class="nav-number">21.6.</span> <span class="nav-text">cxy[转载] 在Linux中使用环境变量进行提权</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-24"><span class="nav-number">22.</span> <span class="nav-text">2018-06-24</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-Linux系统进程的一些知识总结，进程与线程之间的纠葛…"><span class="nav-number">22.1.</span> <span class="nav-text">cxy[转载] Linux系统进程的一些知识总结，进程与线程之间的纠葛…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-译-ES2018（ES9）的新特性"><span class="nav-number">22.2.</span> <span class="nav-text">fzl[转载] [译] ES2018（ES9）的新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-HTTP—-HTTP2-0新特性"><span class="nav-number">22.3.</span> <span class="nav-text">cy[转载] HTTP—-HTTP2.0新特性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-23"><span class="nav-number">23.</span> <span class="nav-text">2018-06-23</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-Picasso：开启大前端的未来"><span class="nav-number">23.1.</span> <span class="nav-text">fzl[转载] Picasso：开启大前端的未来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-译-设计大型-JavaScript-应用程序"><span class="nav-number">23.2.</span> <span class="nav-text">fzl[转载] [译] 设计大型 JavaScript 应用程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-一道非常棘手的-Java-面试题：i-是线程安全的吗？"><span class="nav-number">23.3.</span> <span class="nav-text">cxy[转载] 一道非常棘手的 Java 面试题：i++ 是线程安全的吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-行为树behavior3go介绍"><span class="nav-number">23.4.</span> <span class="nav-text">cy[转载] 行为树behavior3go介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-22"><span class="nav-number">24.</span> <span class="nav-text">2018-06-22</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Channels-In-Go"><span class="nav-number">24.1.</span> <span class="nav-text">cy[转载] Channels In Go</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ylq-转载-吴恩达授课，斯坦福CS230深度学习课程资源开放"><span class="nav-number">24.2.</span> <span class="nav-text">ylq[转载] 吴恩达授课，斯坦福CS230深度学习课程资源开放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cy-转载-Pool"><span class="nav-number">24.3.</span> <span class="nav-text">cy[转载] Pool</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-21"><span class="nav-number">25.</span> <span class="nav-text">2018-06-21</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-廖威雄-学习Linux必备的硬件基础一网打尽"><span class="nav-number">25.1.</span> <span class="nav-text">cxy[转载] 廖威雄: 学习Linux必备的硬件基础一网打尽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fzl-转载-杭州-GraphQLParty-第一场-GraphQL-数据聚合层解放前后端文字版"><span class="nav-number">25.2.</span> <span class="nav-text">fzl[转载] 杭州 GraphQLParty 第一场-GraphQL 数据聚合层解放前后端文字版</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-06-20"><span class="nav-number">26.</span> <span class="nav-text">2018-06-20</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-程序员如果也能像C罗一样自律和勤奋，必将成为大神"><span class="nav-number">26.1.</span> <span class="nav-text">cxy[转载] 程序员如果也能像C罗一样自律和勤奋，必将成为大神</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxy-转载-为什么我的儿子不沉迷游戏？一位游戏策划家长的分享"><span class="nav-number">26.2.</span> <span class="nav-text">cxy[转载] 为什么我的儿子不沉迷游戏？一位游戏策划家长的分享</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fzliang</span>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

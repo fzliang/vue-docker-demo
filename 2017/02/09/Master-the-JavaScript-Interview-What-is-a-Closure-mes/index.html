@@ -1,0 +1,757 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,转载," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文转载自：众成翻译译者：十年踪迹链接：http://www.zcfy.cc/article/2127原文：https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.yuiywtkcn   “征服 JavaScript 面试”是我写的一系列文章，来帮助面试">
+<meta name="keywords" content="JavaScript,转载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="征服 JavaScript 面试：什么是闭包？| Eric Elliott">
+<meta property="og:url" content="http://fzliang.cn/2017/02/09/Master-the-JavaScript-Interview-What-is-a-Closure-mes/index.html">
+<meta property="og:site_name" content="fzliang">
+<meta property="og:description" content="本文转载自：众成翻译译者：十年踪迹链接：http://www.zcfy.cc/article/2127原文：https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.yuiywtkcn   “征服 JavaScript 面试”是我写的一系列文章，来帮助面试">
+<meta property="og:image" content="http://p0.qhimg.com/t0163946f0d2b9e13a6.jpg">
+<meta property="og:image" content="https://p1.ssl.qhimg.com/t015b8748cb620aaad5.png">
+<meta property="og:updated_time" content="2017-02-10T11:51:21.147Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="征服 JavaScript 面试：什么是闭包？| Eric Elliott">
+<meta name="twitter:description" content="本文转载自：众成翻译译者：十年踪迹链接：http://www.zcfy.cc/article/2127原文：https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.yuiywtkcn   “征服 JavaScript 面试”是我写的一系列文章，来帮助面试">
+<meta name="twitter:image" content="http://p0.qhimg.com/t0163946f0d2b9e13a6.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://fzliang.cn/2017/02/09/Master-the-JavaScript-Interview-What-is-a-Closure-mes/"/>
+
+
+
+
+
+  <title> 征服 JavaScript 面试：什么是闭包？| Eric Elliott | fzliang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">fzliang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://fzliang.cn/2017/02/09/Master-the-JavaScript-Interview-What-is-a-Closure-mes/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="fzliang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="fzliang">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="fzliang" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                征服 JavaScript 面试：什么是闭包？| Eric Elliott
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-09T19:32:33+08:00">
+                2017-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文转载自：<a href="http://www.zcfy.cc" target="_blank" rel="external">众成翻译</a><br>译者：<a href="http://www.zcfy.cc/@akira" target="_blank" rel="external">十年踪迹</a><br>链接：<a href="http://www.zcfy.cc/article/2127" target="_blank" rel="external">http://www.zcfy.cc/article/2127</a><br>原文：<a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.yuiywtkcn" target="_blank" rel="external">https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.yuiywtkcn</a></p>
+</blockquote>
+<p><img src="http://p0.qhimg.com/t0163946f0d2b9e13a6.jpg" alt=""></p>
+<p>“征服 JavaScript 面试”是我写的一系列文章，来帮助面试者准备他们在面试 JavaScript 中、高级职位中将可能会遇到的一些问题。这些问题我自己在面试中也经常会问。</p>
+<a id="more"></a>
+<p><img src="https://p1.ssl.qhimg.com/t015b8748cb620aaad5.png" alt=""></p>
+<p>在我面试时问出的一系列问题里，闭包通常是我问的第一个或最后一个问题。坦白地说，如果你连闭包也弄不明白，你是不会在 JavaScript 的道路上走多远的。</p>
+<p>你别东张西望，说的就是你。你真的理解如何构建一个严谨的 JavaScript 应用？你真的理解代码背后发生的事情或者说一个应用程序是如何工作的？我表示怀疑。如果连个闭包问题都搞不清的话，真是有点够呛。</p>
+<p>你不仅仅应该了解闭包的机制，更应该了解闭包为什么很重要，以及能够很容易地回答出闭包的几种可能的应用场景。</p>
+<p>闭包在 JavaScript 中常用来实现对象数据的私有，在事件处理和回调函数中也常常会用到它，此外还有<a href="https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x" target="_blank" rel="external">偏函数应用（partial applications）和柯里化（currying）</a>，以及其他函数式编程模式。</p>
+<p>我不在乎面试者是否知道“closure”这个单词或者它的专业定义。我只想弄清他们是否理解基本原理。如果他们没有，那么通常意味着这些面试者在构建实际 JavaScript 应用方面并没有很多经验。</p>
+<blockquote>
+<p>如果你不能回答这个问题，你只是个初级开发者。不管你实际上已经干这个多久了。</p>
+</blockquote>
+<p>为了快速理解下面的内容：你想一下能否举出两个闭包的通用场景？</p>
+<h3 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h3><p>简言之，<strong>闭包</strong>是由函数引用其周边状态（<strong>词法环境</strong>）绑在一起形成的（封装）组合结构。在 JavaScript 中，闭包在<strong>每个函数被创建时</strong>形成。</p>
+<p>这是基本原理，但为什么我们关心这些？实际上，由于闭包与它的词法环境绑在一起，因此<strong>闭包让我们能够从一个函数内部访问其外部函数的作用域</strong>。</p>
+<p>要使用闭包，只需要简单地将一个函数定义在另一个函数内部，并将它暴露出来。要暴露一个函数，可以将它返回或者传给其他函数。</p>
+<p><strong>内部函数将能够访问到外部函数作用域中的变量</strong>，即使外部函数已经执行完毕。</p>
+<h3 id="闭包使用的例子"><a href="#闭包使用的例子" class="headerlink" title="闭包使用的例子"></a>闭包使用的例子</h3><p>闭包的用途之一是实现对象的私有数据。数据私有是让我们能够面向接口编程而不是面向实现编程的基础。而面向接口编程是一个重要的概念，有助于我们创建更加健壮的软件，因为实现细节比接口约定相对来说更加容易被改变。</p>
+<blockquote>
+<p>“面向接口编程，别面向实现编程。”<br><a href="http://www.amazon.com/gp/product/B000SEIBB8?ie=UTF8&amp;camp=213733&amp;creative=393177&amp;creativeASIN=B000SEIBB8&amp;linkCode=shr&amp;tag=eejs-20&amp;linkId=CSQYBHTUP625XI4T" target="_blank" rel="external">设计模式：可复用面向对象软件的要素</a></p>
+</blockquote>
+<p>在 JavaScript 中，闭包是用来实现数据私有的原生机制。当你使用闭包来实现数据私有时，被封装的变量只能在闭包容器函数作用域中使用。你无法绕过对象<strong>被授权的方法</strong>在外部访问这些数据。在 JavaScript 中，任何定义在闭包作用域下的公开方法才可以访问这些数据。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getSecret = <span class="function">(<span class="params">secret</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">get</span>: <span class="function"><span class="params">()</span> =&gt;</span> secret</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">test(<span class="string">'Closure for object privacy.'</span>, assert =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> msg = <span class="string">'.get() should have access to the closure.'</span>;</div><div class="line">  <span class="keyword">const</span> expected = <span class="number">1</span>;</div><div class="line">  <span class="keyword">const</span> obj = getSecret(<span class="number">1</span>);</div><div class="line"></div><div class="line">  <span class="keyword">const</span> actual = obj.get();</div><div class="line"></div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    assert.ok(secret, <span class="string">'This throws an error.'</span>);</div><div class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line">    assert.ok(<span class="literal">true</span>, <span class="string">`The secret var is only available</span></div><div class="line">      to privileged methods.`);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  assert.equal(actual, expected, msg);</div><div class="line">  assert.end();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在上面的例子里，<code>get()</code> 方法定义在 <code>getSecret()</code> 作用域下，这让它可以访问任何 <code>getSecret()</code> 中的变量，于是它就是一个被授权的方法。在这个例子里，它可以访问参数 <code>secret</code>。</p>
+<p>对象不是唯一的产生私有数据的方式。闭包还可以被用来创建<strong>有状态的函数</strong>，这些函数的执行过程可能由它们自身的内部状态所决定。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> secret = <span class="function">(<span class="params">msg</span>) =&gt;</span> () =&gt; msg;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Secret - creates closures with secret messages.</span></div><div class="line"><span class="comment">// https://gist.github.com/ericelliott/f6a87bc41de31562d0f9</span></div><div class="line"><span class="comment">// https://jsbin.com/hitusu/edit?html,js,output</span></div><div class="line"></div><div class="line"><span class="comment">// secret(msg: String) =&gt; getSecret() =&gt; msg: String</span></div><div class="line"><span class="keyword">const</span> secret = <span class="function">(<span class="params">msg</span>) =&gt;</span> () =&gt; msg;</div><div class="line"></div><div class="line">test(<span class="string">'secret'</span>, assert =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> msg = <span class="string">'secret() should return a function that returns the passed secret.'</span>;</div><div class="line"></div><div class="line">  <span class="keyword">const</span> theSecret = <span class="string">'Closures are easy.'</span>;</div><div class="line">  <span class="keyword">const</span> mySecret = secret(theSecret);</div><div class="line"></div><div class="line">  <span class="keyword">const</span> actual = mySecret();</div><div class="line">  <span class="keyword">const</span> expected = theSecret;</div><div class="line"></div><div class="line">  assert.equal(actual, expected, msg);</div><div class="line">  assert.end();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在函数式编程中，闭包经常用于偏函数应用和柯里化。为了说明这个，我们先定义一些概念：</p>
+<p><strong>函数应用：</strong>一个过程，指将参数传给一个函数，并获得它的返回值。</p>
+<p><strong>偏函数应用：</strong>一个过程，它传给某个函数其中一部分参数，然后返回一个新的函数，该函数等待接受后续参数。换句话说，偏函数应用是一个函数，它接受另一个函数为参数，这个作为参数的函数本身接受多个参数，它返回一个函数，这个函数与它的参数函数相比，接受更少的参数。偏函数应用<em>提前赋予</em>一部分参数，而返回的函数则等待调用时传入剩余的参数。</p>
+<p>偏函数应用通过闭包作用域来提前赋予参数。你可以实现一个通用的函数来赋予指定的函数部分参数，它看起来如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">partialApply(targetFunction: <span class="built_in">Function</span>, ...fixedArgs: Any[]) =&gt;</div><div class="line">  functionWithFewerParams(...remainingArgs: Any[])</div></pre></td></tr></table></figure>
+<p>如果你要更进一步理解上面的形式，你可以看<a href="https://github.com/ericelliott/rtype#reading-function-signatures" target="_blank" rel="external">这里</a>。</p>
+<p><code>partialApply</code> 接受一个多参数的函数，以及一串我们想要提前赋给这个函数的参数，它返回一个新的函数，这个函数将接受剩余的参数。</p>
+<p>下面给一个例子来说明，假设你有一个函数，求两个数的和：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b;</div></pre></td></tr></table></figure>
+<p>现在你想要得到一个函数，它能够对任何传给它的参数都加 10，我们可以将它命名为 <code>add10()</code>。<code>add10(5)</code> 的结果应该是 <code>15</code>。我们的 <code>partialApply()</code> 函数可以做到这个：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> add10 = partialApply(add, <span class="number">10</span>);</div><div class="line">add10(<span class="number">5</span>);</div></pre></td></tr></table></figure>
+<p>在这个例子里，参数 <code>10</code> 通过闭包作用域被提前赋予 <code>add()</code>，从而让我们获得 <code>add10()</code>。</p>
+<p>现在让我们看一下如何实现 <code>partialApply()</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Generic Partial Application Function</span></div><div class="line"><span class="comment">// https://jsbin.com/biyupu/edit?html,js,output</span></div><div class="line"><span class="comment">// https://gist.github.com/ericelliott/f0a8fd662111ea2f569e</span></div><div class="line"></div><div class="line"><span class="comment">// partialApply(targetFunction: Function, ...fixedArgs: Any[]) =&gt;</span></div><div class="line"><span class="comment">//   functionWithFewerParams(...remainingArgs: Any[])</span></div><div class="line"><span class="keyword">const</span> partialApply = <span class="function">(<span class="params">fn, ...fixedArgs</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...remainingArgs</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, fixedArgs.concat(remainingArgs));</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line">test(<span class="string">'add10'</span>, assert =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> msg = <span class="string">'partialApply() should partially apply functions'</span></div><div class="line"></div><div class="line">  <span class="keyword">const</span> add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b;</div><div class="line"></div><div class="line">  <span class="keyword">const</span> add10 = partialApply(add, <span class="number">10</span>);</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">const</span> actual = add10(<span class="number">5</span>);</div><div class="line">  <span class="keyword">const</span> expected = <span class="number">15</span>;</div><div class="line"></div><div class="line">  assert.equal(actual, expected, msg);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如你所见，它只是简单地返回一个函数，这个函数通过闭包访问了传给 <code>partialApply()</code> 函数的 <code>fixedArgs</code> 参数。</p>
+<h3 id="轮到你来试试了"><a href="#轮到你来试试了" class="headerlink" title="轮到你来试试了"></a>轮到你来试试了</h3><p>你用闭包来做什么？如果你有最喜欢的应用场景，举一些例子，在评论中告诉我。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/转载/" rel="tag"># 转载</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/10/20170210/" rel="next" title="CSS 专业技巧 「转载」">
+                <i class="fa fa-chevron-left"></i> CSS 专业技巧 「转载」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/09/first/" rel="prev" title="第一篇博文">
+                第一篇博文 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="fzliang" />
+          <p class="site-author-name" itemprop="name">fzliang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fzliang" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5556164864" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是闭包？"><span class="nav-number">1.</span> <span class="nav-text">什么是闭包？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包使用的例子"><span class="nav-number">2.</span> <span class="nav-text">闭包使用的例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轮到你来试试了"><span class="nav-number">3.</span> <span class="nav-text">轮到你来试试了</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fzliang</span>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
