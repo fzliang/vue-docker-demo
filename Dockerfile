@@ -19,7 +19,7 @@ EXPOSE 80
 # 4.删除工作目录下的文件，尤其是 node_modules 以减小镜像体积
 # 由于镜像构建的每一步都会产生新层
 # 为了减小镜像体积，尽可能将一些同类操作，集成到一个步骤中，如下
-RUN cp -r ./* /var/www/html && rm -rf /app
+RUN cp -r /app/* /var/www/html && rm -rf /app
 
 # 以前台方式启动nginx
 CMD ["nginx","-g","daemon off;"]
